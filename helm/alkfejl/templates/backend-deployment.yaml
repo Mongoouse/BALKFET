@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "alkfejl.fullname" . }}-backend
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "alkfejl.fullname" . }}-backend
+  template:
+    metadata:
+      labels:
+        app: {{ include "alkfejl.fullname" . }}-backend
+    spec:
+      containers:
+        - name: backend
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 80
+          env:
+            - name: MongoDatabase__ConnectionString
+              value: "mongodb://{{ include "alkfejl.fullname" . }}-mongo:{{ .Values.mongo.port }}"
+            - name: MongoDatabase__DatabaseName
+              value: "alkfejl"

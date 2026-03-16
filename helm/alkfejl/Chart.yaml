@@ -1,0 +1,5 @@
+apiVersion: v2
+name: alkfejl
+description: A simple chart for the AlkFejl application (backend + mongo)
+version: 0.1.0
+appVersion: "1.0.0"

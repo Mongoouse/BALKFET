@@ -1,0 +1,39 @@
+{{- if .Values.mongo.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "alkfejl.fullname" . }}-mongo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "alkfejl.fullname" . }}-mongo
+  template:
+    metadata:
+      labels:
+        app: {{ include "alkfejl.fullname" . }}-mongo
+    spec:
+      containers:
+        - name: mongo
+          image: {{ .Values.mongo.image }}
+          ports:
+            - containerPort: {{ .Values.mongo.port }}
+          volumeMounts:
+            - name: mongo-data
+              mountPath: /data/db
+      volumes:
+        - name: mongo-data
+          persistentVolumeClaim:
+            claimName: {{ include "alkfejl.fullname" . }}-mongo-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "alkfejl.fullname" . }}-mongo-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.mongo.persistence.size }}
+{{- end }}

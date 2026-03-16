@@ -1,0 +1,33 @@
+@backend_HostAddress = http://localhost:5000
+
+### List all books
+GET {{backend_HostAddress}}/api/books
+Accept: application/json
+
+### Get a book by id
+GET {{backend_HostAddress}}/api/books/{{bookId}}
+Accept: application/json
+
+### Create a book
+POST {{backend_HostAddress}}/api/books
+Content-Type: application/json
+
+{
+  "title": "Clean Code",
+  "author": "Robert C. Martin",
+  "year": 2008
+}
+
+### Update a book
+PUT {{backend_HostAddress}}/api/books/{{bookId}}
+Content-Type: application/json
+
+{
+  "id": "{{bookId}}",
+  "title": "Clean Code (Updated)",
+  "author": "Robert C. Martin",
+  "year": 2008
+}
+
+### Delete a book
+DELETE {{backend_HostAddress}}/api/books/{{bookId}}
