@@ -1,7 +1,5 @@
 # Alkalmazásfejlesztés Projekt
 
-Ez a projekt a kiírás alapján készült, cél a **Hármas** osztályzat elérése.
-
 ## Struktúra
 - `frontend/`: Angular alkalmazás
 - `backend/`: ASP.NET alkalmazás
@@ -10,9 +8,6 @@ Ez a projekt a kiírás alapján készült, cél a **Hármas** osztályzat elér
 - `ci/`: CI workflow fájlok
 - `INSTALL.md`: Telepítési útmutató
 - `USER_GUIDE.md`: Felhasználói útmutató
-
-## Fejlesztési környezet
-Használj Docker-t az izolált fejlesztéshez.
 
 ## Alapkövetelmények teljesítése
 - ✅ Alkalmazás egyszerű domain modellel
