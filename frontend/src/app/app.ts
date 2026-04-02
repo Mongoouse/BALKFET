@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { CommonModule, Component, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Weather } from './weather';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App implements OnInit {
+  title = signal('alkfejl');
   weatherData: any[] = [];
 
   constructor(private weatherService: Weather) {}

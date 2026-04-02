@@ -18,6 +18,7 @@ services:
       - ./backend:/src
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
       - MongoDatabase__ConnectionString=mongodb://mongo:27017
       - MongoDatabase__DatabaseName=alkfejl
 
