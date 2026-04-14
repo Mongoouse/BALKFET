@@ -1,10 +1,10 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { DatePipe, NgIf, NgForOf } from '@angular/common';
 import { Weather } from './weather';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [DatePipe, NgIf, NgForOf],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
