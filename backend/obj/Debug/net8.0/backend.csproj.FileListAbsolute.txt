@@ -36,3 +36,4 @@ C:\Users\David\Desktop\4_szemeszter\alkFejl\backend\obj\Debug\net8.0\refint\back
 C:\Users\David\Desktop\4_szemeszter\alkFejl\backend\obj\Debug\net8.0\backend.pdb
 C:\Users\David\Desktop\4_szemeszter\alkFejl\backend\obj\Debug\net8.0\backend.genruntimeconfig.cache
 C:\Users\David\Desktop\4_szemeszter\alkFejl\backend\obj\Debug\net8.0\ref\backend.dll
+C:\Users\David\Desktop\4_szemeszter\alkFejl\backend\obj\Debug\net8.0\backend.sourcelink.json
