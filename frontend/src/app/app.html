@@ -1,23 +1,5 @@
-﻿<div class="container">
+<div class="container">
   <h1>Alkalmazásfejlesztés Projekt</h1>
-  
-  <button (click)="loadWeather()" class="btn">Betöltés</button>
-  
-  <div *ngIf="weatherData && weatherData.length > 0" class="weather-list">
-    <h2>Időjárási előrejelzés:</h2>
-    <ul>
-      <li *ngFor="let item of weatherData" class="weather-item">
-        📅 {{ item.date | date: 'yyyy-MM-dd' }} - 
-        🌡️ {{ item.temperatureC }}°C ({{ item.temperatureF }}°F) - 
-        🌤️ {{ item.summary }}
-      </li>
-    </ul>
-  </div>
-  
-  <div *ngIf="!weatherData || weatherData.length === 0" class="no-data">
-    <p>Nincs adat. Nyomj a Betöltés gombra!</p>
-  </div>
-
   <hr>
   <app-books></app-books>
 </div>

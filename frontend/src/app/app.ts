@@ -1,5 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { DatePipe, NgIf, NgForOf } from '@angular/common';
+import { DatePipe, NgForOf, NgIf } from '@angular/common';
 import { Weather } from './weather';
 import { BooksComponent } from './books.component';
 
@@ -11,17 +11,20 @@ import { BooksComponent } from './books.component';
 })
 export class App implements OnInit {
   title = signal('alkfejl');
-  weatherData: any[] = [];
+  weatherData = signal<any[]>([]);
 
   constructor(private weatherService: Weather) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadWeather();
   }
 
-  loadWeather() {
-    this.weatherService.getWeather().subscribe(data => {
-      this.weatherData = data;
+  loadWeather(): void {
+    this.weatherService.getWeather().subscribe({
+      next: (data) => {
+        this.weatherData.set(data);
+      },
+      error: (error) => console.error('Error loading weather:', error)
     });
   }
 }

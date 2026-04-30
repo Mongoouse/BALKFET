@@ -7,9 +7,9 @@ import { Book } from './book';
   providedIn: 'root'
 })
 export class BookService {
-  private apiUrl = 'http://localhost:8080/api/books'; // Backend API URL
+  private apiUrl = 'http://localhost:8080/api/books';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(this.apiUrl);
@@ -23,8 +23,8 @@ export class BookService {
     return this.http.post<Book>(this.apiUrl, book);
   }
 
-  updateBook(id: string, book: Book): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/${id}`, book);
+  updateBook(id: string, book: Book): Observable<Book> {
+    return this.http.put<Book>(`${this.apiUrl}/${id}`, book);
   }
 
   deleteBook(id: string): Observable<void> {
